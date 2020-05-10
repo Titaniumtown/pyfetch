@@ -1,7 +1,7 @@
 # pyfetch
 A WIP port of neofetch to python.
 
-You can run it by just doing python pyfetch.py, or compile it with cython by runing compile.sh, for compiler optimizations and speed improvements.
+You can run it by just doing python pyfetch.py. You could also compile it with cython by running compile.sh, for compiler optimizations and speed improvements.
 
 What is working:
 1. Linux os name fetching
