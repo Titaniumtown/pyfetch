@@ -149,7 +149,7 @@ def debug():
     print("Misc function time:",str(round(misc_func_time, 5)))
 
     print("Total time:",str(round(total_time, 5))+'\n')
-debug()
+# debug()
 
 def display():
     pac_msg, full_cpu_info, product_info, pretty_name, shell, resolution, terminal_emu, kernel, uptime = non_debug()
@@ -177,3 +177,5 @@ def display():
     print(f'CPU: {full_cpu_info}')
     print(f'GPU: ')
     print(f'Memory: ')
+
+display()
