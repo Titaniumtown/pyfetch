@@ -45,7 +45,7 @@ def misc_func():
     elif shell_name == "bash":
         shell_ver = environ['BASH_VERSION'].split('(')[0]
     if shell_ver != "":
-        shell = str(shell_name+" shell_ver")
+        shell = str(shell_name+" "+shell_ver)
     else:
         shell = shell_name
     
