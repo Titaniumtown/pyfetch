@@ -38,7 +38,13 @@ def model_info():
 
 
 def misc_func():
-    shell = environ["SHELL"].split('/')[-1]
+    shell_name = environ["SHELL"].split('/')[-1]
+    shell_ver = ""
+    if shell_name == "fish":
+        shell_ver = run_command("fish --version").replace("fish, version ","")
+    if shell_ver != "":
+        shell = str(shell_name+" shell_ver")
+    
     resolution = run_command("cat /sys/class/drm/*/modes").split('\n')[0]
     terminal_emu = environ["TERM"]
     kernel = run_command("uname -r")
