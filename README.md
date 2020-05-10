@@ -1,7 +1,7 @@
 # pyfetch
-Port of Neofetch to python, does what it says.
+A WIP port of neofetch to python.
 
-Run compile.sh to compile the python code using cython, for extra speed.
+You can run it by just doing python pyfetch.py, or compile it with cython by runing compile.sh, for compiler optimizations and speed improvements.
 
 What is working:
 1. Linux os name fetching
