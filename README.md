@@ -18,3 +18,4 @@ What is working:
 6. Screen resolution
 7. ALL (linux) package manager support, supports the same ones as neofetch
 8. Terminal info
+9. Shell version (fish and bash)
