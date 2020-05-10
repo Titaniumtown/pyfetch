@@ -42,8 +42,12 @@ def misc_func():
     shell_ver = ""
     if shell_name == "fish":
         shell_ver = run_command("fish --version").replace("fish, version ","")
+    elif shell_name == "bash":
+        shell_ver = environ['BASH_VERSION'].split('(')[0]
     if shell_ver != "":
         shell = str(shell_name+" shell_ver")
+    else:
+        shell = shell_name
     
     resolution = run_command("cat /sys/class/drm/*/modes").split('\n')[0]
     terminal_emu = environ["TERM"]
