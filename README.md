@@ -17,8 +17,8 @@ What is working:
 2. Bedrock linux support
 3. Shell name
 4. Computer model
-5. Cpu model
+5. CPU
 6. Screen resolution
-7. ALL (linux) package manager support, supports the same ones as neofetch
-8. Terminal info
+7. ALL (linux) package manager support (supports the same linux package managers as neofetch)
+8. Terminal emulator
 9. Shell version (fish and bash)
