@@ -8,6 +8,9 @@ TODO:
 2. macOS and windows support
 3. Shell version
 4. Colors
+5. Memory
+6. GPU
+7. Everything DE related (icons, themes, WM, etc)
 
 What is working:
 1. Linux os name fetching
