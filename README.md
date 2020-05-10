@@ -13,6 +13,8 @@ What is working:
 7. ALL (linux) package manager support (supports the same linux package managers as neofetch)
 8. Terminal emulator
 9. Shell version (fish and bash)
+10. Uptime
+11. Kernel version
 
 
 TODO:
