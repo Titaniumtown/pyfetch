@@ -16,12 +16,14 @@ What is working:
 10. Uptime
 11. Kernel version
 12. Logo printing support
+13. Hostname support
 
-TODO:
-1. Add more logos
-2. macOS and windows support
-3. Shell version
-4. Colors
-5. Memory
-6. GPU
-7. Everything DE related (icons, themes, WM, etc)
+TODO (in order of importance):
+1. Text colors
+2. The colored boxes at the bottom (idk what their called)
+3. Memory
+4. GPU
+5. Shell version
+6. Everything DE related (icons, themes, WM, etc)
+7. Add more logos
+8. macOS and Windows support
