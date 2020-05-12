@@ -199,12 +199,21 @@ def display_array():
     pac_msg, full_cpu_info, product_info, pretty_name, shell, resolution, terminal_emu, kernel, uptime, hostname, gpu, memory = non_debug()
     de, wm, wmtheme, theme, icons = de_info()
     data = []
-    data.append(hostname.rstrip('\n'))
-    data.append(dash_gen(len(hostname.rstrip('\n'))))
-    data.append(f'OS: {pretty_name}'.rstrip('\n'))
-    data.append(f'Host: {product_info}'.rstrip('\n'))
-    data.append(f'Kernel: {kernel}'.rstrip('\n'))
-    data.append(f'Uptime: {uptime}'.rstrip('\n'))
+    if hostname != "":
+        data.append(hostname.rstrip('\n'))
+        data.append(dash_gen(len(hostname.rstrip('\n'))))
+    
+    if pretty_name != "":
+        data.append(f'OS: {pretty_name}'.rstrip('\n'))
+    
+    if product_info != "":
+        data.append(f'Host: {product_info}'.rstrip('\n'))
+    
+    if kernel != "":
+        data.append(f'Kernel: {kernel}'.rstrip('\n'))
+    
+    if uptime != "":
+        data.append(f'Uptime: {uptime}'.rstrip('\n'))
 
     if pac_msg != "Packages:":
         data.append(pac_msg.rstrip('\n'))
@@ -240,7 +249,7 @@ def display_array():
         data.append(f'GPU: {gpu}')
 
     if memory != "":
-        data.append(f'Memory: ')
+        data.append(f'Memory: {memory}')
     return data
 
 
