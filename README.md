@@ -25,5 +25,6 @@ TODO (in order of importance):
 4. GPU
 5. Shell version
 6. Everything DE related (icons, themes, WM, etc)
-7. Add more logos
-8. macOS and Windows support
+7. Battery
+8. Add more logos
+9. macOS and Windows support
