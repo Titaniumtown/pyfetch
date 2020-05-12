@@ -142,7 +142,7 @@ def debug():
     hostname = hostname()
     end_time = time.time()
     hostname_time = end_time - start_time
-    total_time += pac_msg_time
+    total_time += hostname_time
     print("hostname time:",str(round(hostname, 5)))
 
     start_time = time.time()
