@@ -17,6 +17,8 @@ What is working:
 11. Kernel version
 12. Logo printing support
 13. Hostname support
+14. Desktop environment
+15. WM (mutter)
 
 TODO (in order of importance):
 1. Text colors
@@ -24,7 +26,7 @@ TODO (in order of importance):
 3. Memory
 4. GPU
 5. Shell version
-6. Everything DE related (icons, themes, WM, etc)
+6. icons, themes, WM, etc
 7. Battery
 8. Add more logos
 9. macOS and Windows support
