@@ -96,8 +96,16 @@ def pac_msg_madness():
     return pac_msg
 
 
-#cpu stuff
+def de_info():
+    de = environ['DESKTOP_SESSION']
+    if de.lower() == 'gnome'.lower():
+        wm = "Mutter"
+    else:
+        wm = "Unknown"
+    
+    return de, wm
 
+#cpu stuff
 def fetch_cpu_info():
     cpu_count = len(run_command("ls /sys/class/cpuid/ | sort").split('\n')) - 1 
     cpu_info = run_command("cat /proc/cpuinfo | grep 'model name'").split('\n')[0].replace("model name	: ","").replace("Core(TM)","").replace("(R)","").replace("CPU","").replace("  "," ").split('@')[0]
@@ -186,39 +194,9 @@ def space_gen(num):
         result = str(result+" ")
     return result
 
-def display():
-    pac_msg, full_cpu_info, product_info, pretty_name, shell, resolution, terminal_emu, kernel, uptime, hostname = non_debug()
-    print(hostname.rstrip('\n'))
-    print(dash_gen(len(hostname.rstrip('\n'))))
-    print(f'OS: {pretty_name}'.rstrip('\n'))
-    print(f'Host: {product_info}'.rstrip('\n'))
-    print(f'Kernel: {kernel}'.rstrip('\n'))
-    print(f'Uptime: {uptime}'.rstrip('\n'))
-
-    if pac_msg != "Packages:":
-        print(pac_msg.rstrip('\n'))
-
-    if shell != "":
-        print(f'Shell: {shell}')
-
-    if resolution != "":
-        print(f'Resolution: {resolution}')
-
-    print(f'DE: ')
-    print(f'WM: ')
-    print(f'WM Theme: ')
-    print(f'Theme: ')
-    print(f'Icons: ')
-    if terminal_emu != "":
-        print(f'Terminal: {terminal_emu}')
-    print(f'CPU: {full_cpu_info}')
-    print(f'GPU: ')
-    print(f'Memory: ')
-
-# display()
-
 def display_array():
     pac_msg, full_cpu_info, product_info, pretty_name, shell, resolution, terminal_emu, kernel, uptime, hostname = non_debug()
+    de, wm = de_info()
     data = []
     data.append(hostname.rstrip('\n'))
     data.append(dash_gen(len(hostname.rstrip('\n'))))
@@ -235,9 +213,10 @@ def display_array():
 
     if resolution != "":
         data.append(f'Resolution: {resolution}')
+    
 
-    data.append(f'DE: ')
-    data.append(f'WM: ')
+    data.append(f'DE: {de}')
+    data.append(f'WM: {wm}')
     data.append(f'WM Theme: ')
     data.append(f'Theme: ')
     data.append(f'Icons: ')
