@@ -264,7 +264,7 @@ def logo_test():
         tmp.append(len(ele))
     max_logo_len = max(tmp)
     del tmp
-    for i in range(len(sys_info)):
+    for i in range(max_size):
         if i > len(sys_info):
             print(str(sel_logo[i]))
         elif i > int(len(sel_logo)-1):
