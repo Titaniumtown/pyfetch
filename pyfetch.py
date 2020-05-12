@@ -265,7 +265,7 @@ def logo_test():
     max_logo_len = max(tmp)
     del tmp
     for i in range(max_size):
-        if i > len(sys_info):
+        if i > int(len(sys_info)-1):
             print(str(sel_logo[i]))
         elif i > int(len(sel_logo)-1):
             print(str(space_gen(max_logo_len))+"   "+str(sys_info[i]))
