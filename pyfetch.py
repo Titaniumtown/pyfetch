@@ -102,8 +102,8 @@ def de_info():
         wm = "Mutter"
     else:
         wm = "Unknown"
-    
-    return de, wm
+    wmtheme, theme, icons = "", "", ""
+    return de, wm, wmtheme, theme, icons
 
 #cpu stuff
 def fetch_cpu_info():
@@ -131,7 +131,8 @@ def non_debug():
     pretty_name = os_name()
     hostname_info = hostname()
     shell, resolution, terminal_emu, kernel, uptime = misc_func()
-    return pac_msg, full_cpu_info, product_info, pretty_name, shell, resolution, terminal_emu, kernel, uptime, hostname_info
+    gpu, memory = "", ""
+    return pac_msg, full_cpu_info, product_info, pretty_name, shell, resolution, terminal_emu, kernel, uptime, hostname_info, gpu, memory
 
 def debug():
     global pac_msg, full_cpu_info, product_info, pretty_name, shell, resolution, terminal_emu, kernel, uptime, hostname
@@ -195,8 +196,8 @@ def space_gen(num):
     return result
 
 def display_array():
-    pac_msg, full_cpu_info, product_info, pretty_name, shell, resolution, terminal_emu, kernel, uptime, hostname = non_debug()
-    de, wm = de_info()
+    pac_msg, full_cpu_info, product_info, pretty_name, shell, resolution, terminal_emu, kernel, uptime, hostname, gpu, memory = non_debug()
+    de, wm, wmtheme, theme, icons = de_info()
     data = []
     data.append(hostname.rstrip('\n'))
     data.append(dash_gen(len(hostname.rstrip('\n'))))
@@ -214,17 +215,32 @@ def display_array():
     if resolution != "":
         data.append(f'Resolution: {resolution}')
     
-
-    data.append(f'DE: {de}')
-    data.append(f'WM: {wm}')
-    data.append(f'WM Theme: ')
-    data.append(f'Theme: ')
-    data.append(f'Icons: ')
+    if de != "":
+        data.append(f'DE: {de}')
+    
+    if wm != "":
+        data.append(f'WM: {wm}')
+    
+    if wmtheme != "":
+        data.append(f'WM Theme: {wmtheme}')
+    
+    if theme != "":
+        data.append(f'Theme: {theme}')
+    
+    if icons != "":
+        data.append(f'Icons: {icons}')
+    
     if terminal_emu != "":
         data.append(f'Terminal: {terminal_emu}')
-    data.append(f'CPU: {full_cpu_info}')
-    data.append(f'GPU: ')
-    data.append(f'Memory: ')
+    
+    if full_cpu_info != "":
+        data.append(f'CPU: {full_cpu_info}')
+    
+    if gpu != "":
+        data.append(f'GPU: {gpu}')
+
+    if memory != "":
+        data.append(f'Memory: ')
     return data
 
 
