@@ -3,6 +3,7 @@ from os import environ
 from os.path import isfile, exists
 from shutil import which
 import time
+from logos import logo_array
 
 def run_command(command):
     process = Popen(command, stdout=PIPE, universal_newlines=True, shell=True,stderr=DEVNULL)
@@ -69,6 +70,10 @@ def pac_msg_append(command, pac_manager, pac_msg):
     else:
         return pac_msg
 
+def hostname():
+    username = environ['USER']
+    hostname = run_command('hostname').rstrip('\n')
+    return f'{username}@{hostname}'
 
 def pac_msg_madness():
     pac_msg = "Packages:"
@@ -116,13 +121,21 @@ def non_debug():
     full_cpu_info = fetch_cpu_info()
     product_info = model_info()
     pretty_name = os_name()
+    hostname_info = hostname()
     shell, resolution, terminal_emu, kernel, uptime = misc_func()
-    return pac_msg, full_cpu_info, product_info, pretty_name, shell, resolution, terminal_emu, kernel, uptime
+    return pac_msg, full_cpu_info, product_info, pretty_name, shell, resolution, terminal_emu, kernel, uptime, hostname_info
 
 def debug():
-    global pac_msg, full_cpu_info, product_info, pretty_name, shell, resolution, terminal_emu, kernel, uptime
-
+    global pac_msg, full_cpu_info, product_info, pretty_name, shell, resolution, terminal_emu, kernel, uptime, hostname
     total_time = 0
+
+    start_time = time.time()
+    hostname = hostname()
+    end_time = time.time()
+    hostname_time = end_time - start_time
+    total_time += pac_msg_time
+    print("hostname time:",str(round(hostname, 5)))
+
     start_time = time.time()
     pac_msg = pac_msg_madness()
     end_time = time.time()
@@ -161,8 +174,22 @@ def debug():
     print("Total time:",str(round(total_time, 5))+'\n')
 # debug()
 
+def dash_gen(num):
+    result = ""
+    for i in range(num):
+        result = str(result+"-")
+    return result
+
+def space_gen(num):
+    result = ""
+    for i in range(num):
+        result = str(result+" ")
+    return result
+
 def display():
-    pac_msg, full_cpu_info, product_info, pretty_name, shell, resolution, terminal_emu, kernel, uptime = non_debug()
+    pac_msg, full_cpu_info, product_info, pretty_name, shell, resolution, terminal_emu, kernel, uptime, hostname = non_debug()
+    print(hostname.rstrip('\n'))
+    print(dash_gen(len(hostname.rstrip('\n'))))
     print(f'OS: {pretty_name}'.rstrip('\n'))
     print(f'Host: {product_info}'.rstrip('\n'))
     print(f'Kernel: {kernel}'.rstrip('\n'))
@@ -188,4 +215,57 @@ def display():
     print(f'GPU: ')
     print(f'Memory: ')
 
-display()
+# display()
+
+def display_array():
+    pac_msg, full_cpu_info, product_info, pretty_name, shell, resolution, terminal_emu, kernel, uptime, hostname = non_debug()
+    data = []
+    data.append(hostname.rstrip('\n'))
+    data.append(dash_gen(len(hostname.rstrip('\n'))))
+    data.append(f'OS: {pretty_name}'.rstrip('\n'))
+    data.append(f'Host: {product_info}'.rstrip('\n'))
+    data.append(f'Kernel: {kernel}'.rstrip('\n'))
+    data.append(f'Uptime: {uptime}'.rstrip('\n'))
+
+    if pac_msg != "Packages:":
+        data.append(pac_msg.rstrip('\n'))
+
+    if shell != "":
+        data.append(f'Shell: {shell}')
+
+    if resolution != "":
+        data.append(f'Resolution: {resolution}')
+
+    data.append(f'DE: ')
+    data.append(f'WM: ')
+    data.append(f'WM Theme: ')
+    data.append(f'Theme: ')
+    data.append(f'Icons: ')
+    if terminal_emu != "":
+        data.append(f'Terminal: {terminal_emu}')
+    data.append(f'CPU: {full_cpu_info}')
+    data.append(f'GPU: ')
+    data.append(f'Memory: ')
+    return data
+
+
+
+def logo_test():
+    bedrock_logo = logo_array[0]
+    sel_logo = bedrock_logo
+    sys_info = display_array()
+    max_size = max(len(sel_logo), len(sys_info))
+    tmp = []
+    for ele in sel_logo:
+        tmp.append(len(ele))
+    max_logo_len = max(tmp)
+    del tmp
+    for i in range(len(sys_info)):
+        if i > len(sys_info):
+            print(str(sel_logo[i]))
+        elif i > int(len(sel_logo)-1):
+            print(str(space_gen(max_logo_len))+"   "+str(sys_info[i]))
+        else:
+            print(str(sel_logo[i])+"   "+str(sys_info[i]))
+
+logo_test()
