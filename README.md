@@ -1,4 +1,7 @@
 # pyfetch
+[![Language grade: Python](https://img.shields.io/lgtm/grade/python/g/Titaniumtown/pyfetch.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/Titaniumtown/pyfetch/context:python)
+[![Total alerts](https://img.shields.io/lgtm/alerts/g/Titaniumtown/pyfetch.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/Titaniumtown/pyfetch/alerts/)
+
 A WIP port of neofetch to python.
 
 You can run it by just doing python pyfetch.py. You could also compile it with cython by running compile.sh, for compiler optimizations and speed improvements.
