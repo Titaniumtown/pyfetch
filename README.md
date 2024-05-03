@@ -22,14 +22,16 @@ What is working:
 13. Hostname support
 14. Desktop environment
 15. WM (mutter)
+16. Text colors
+17. Memory
+18. GPU
+19. Shell version
+20. Battery
+21. macOS support
 
 TODO (in order of importance):
 1. Text colors
-2. The colored boxes at the bottom (idk what their called)
-3. Memory
-4. GPU
-5. Shell version
+2. The colored boxes at the bottom
 6. icons, themes, WM, etc
-7. Battery
 8. Add more logos
-9. macOS and Windows support
+9. Windows support
