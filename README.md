@@ -27,8 +27,7 @@ What is working:
 21. macOS support
 
 TODO (in order of importance):
-1. Text colors
-2. The colored boxes at the bottom
-6. icons, themes, WM, etc
-8. Add more logos
-9. Windows support
+1. The colored boxes at the bottom
+2. icons, themes, WM, etc
+3. Add more logos
+4. Windows support
