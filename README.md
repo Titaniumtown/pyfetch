@@ -1,7 +1,4 @@
 # pyfetch
-[![Language grade: Python](https://img.shields.io/lgtm/grade/python/g/Titaniumtown/pyfetch.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/Titaniumtown/pyfetch/context:python)
-[![Total alerts](https://img.shields.io/lgtm/alerts/g/Titaniumtown/pyfetch.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/Titaniumtown/pyfetch/alerts/)
-
 A WIP port of neofetch to python.
 
 You can run it by just doing python pyfetch.py. You could also compile it with cython by running compile.sh, for compiler optimizations and speed improvements.
@@ -22,14 +19,15 @@ What is working:
 13. Hostname support
 14. Desktop environment
 15. WM (mutter)
+16. Text colors
+17. Memory
+18. GPU
+19. Shell version
+20. Battery
+21. macOS support
 
 TODO (in order of importance):
-1. Text colors
-2. The colored boxes at the bottom (idk what their called)
-3. Memory
-4. GPU
-5. Shell version
-6. icons, themes, WM, etc
-7. Battery
-8. Add more logos
-9. macOS and Windows support
+1. The colored boxes at the bottom
+2. icons, themes, WM, etc
+3. Add more logos
+4. Windows support
