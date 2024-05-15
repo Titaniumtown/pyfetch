@@ -92,8 +92,6 @@ def misc_func():
     return shell, resolution, terminal_emu, kernel, uptime
 
 def pac_msg_util(input, pac_manager, pac_msg):
-    if sys.platform == 'darwin':  # Check for macOS
-        pac_msg = pac_msg_append("brew list -1 | wc -l", "Homebrew", pac_msg)
     return f'{pac_msg} {str(input)} ({pac_manager})'
 
 def pac_msg_append(command, pac_manager, pac_msg):
@@ -113,23 +111,26 @@ def hostname():
     return bcolors.OKGREEN + f'{username}@{hostname}' + bcolors.ENDC
 
 def pac_msg_madness():
-    pac_msg = "Packages:"
-    pac_msg = pac_msg_append("kiss -l", "kiss", pac_msg)
-    pac_msg = pac_msg_append("pacman -Qq --color never", "pacman", pac_msg)
-    pac_msg = pac_msg_append("dpkg-query -f '.\n' -W", "dpkg", pac_msg)
-    pac_msg = pac_msg_append("rpm -qa", "rpm", pac_msg)
-    pac_msg = pac_msg_append("xbps-query -l", "xbps", pac_msg)
-    pac_msg = pac_msg_append("apk info", "apk", pac_msg)
-    pac_msg = pac_msg_append("opkg list-installed", "opkg", pac_msg)
-    pac_msg = pac_msg_append("pacman-g2 -Q", "pacman-g2", pac_msg)
-    pac_msg = pac_msg_append("lvu installed", "lvu", pac_msg)
-    pac_msg = pac_msg_append("tce-status -i", "tce-status", pac_msg)
-    pac_msg = pac_msg_append("pkg_info", "pkg_info", pac_msg)
-    pac_msg = pac_msg_append("tazpkg list", "tazpkg", pac_msg)
-    pac_msg = pac_msg_append("gaze installed", "sorcery", pac_msg)
-    pac_msg = pac_msg_append("alps showinstalled", "alps", pac_msg)
-    pac_msg = pac_msg_append("butch list", "butch", pac_msg)
-    pac_msg = pac_msg_append("mine -q", "mine", pac_msg)
+    pac_msg = f"Packages:{bcolors.ENDC}"
+    if sys.platform == 'darwin':  # Check for macOS
+        pac_msg = pac_msg_append("brew list -1", "Homebrew", pac_msg)
+    else:
+        pac_msg = pac_msg_append("kiss -l", "kiss", pac_msg)
+        pac_msg = pac_msg_append("pacman -Qq --color never", "pacman", pac_msg)
+        pac_msg = pac_msg_append("dpkg-query -f '.\n' -W", "dpkg", pac_msg)
+        pac_msg = pac_msg_append("rpm -qa", "rpm", pac_msg)
+        pac_msg = pac_msg_append("xbps-query -l", "xbps", pac_msg)
+        pac_msg = pac_msg_append("apk info", "apk", pac_msg)
+        pac_msg = pac_msg_append("opkg list-installed", "opkg", pac_msg)
+        pac_msg = pac_msg_append("pacman-g2 -Q", "pacman-g2", pac_msg)
+        pac_msg = pac_msg_append("lvu installed", "lvu", pac_msg)
+        pac_msg = pac_msg_append("tce-status -i", "tce-status", pac_msg)
+        pac_msg = pac_msg_append("pkg_info", "pkg_info", pac_msg)
+        pac_msg = pac_msg_append("tazpkg list", "tazpkg", pac_msg)
+        pac_msg = pac_msg_append("gaze installed", "sorcery", pac_msg)
+        pac_msg = pac_msg_append("alps showinstalled", "alps", pac_msg)
+        pac_msg = pac_msg_append("butch list", "butch", pac_msg)
+        pac_msg = pac_msg_append("mine -q", "mine", pac_msg)
     return pac_msg
 
 
@@ -296,7 +297,7 @@ def display_array():
         data.append(f'{bcolors.YELLOW}Uptime{bcolors.ENDC}: {uptime}'.rstrip('\n'))
 
     if pac_msg != "Packages:":
-        data.append(pac_msg.rstrip('\n'))
+        data.append(f'{bcolors.YELLOW}{pac_msg}{bcolors.ENDC}'.rstrip('\n'))
 
     if shell != "":
         data.append(f'{bcolors.YELLOW}Shell{bcolors.ENDC}: {shell}')
