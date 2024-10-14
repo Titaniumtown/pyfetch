@@ -6,11 +6,26 @@ import time
 import sys
 from logos import logo_array, bcolors
 
+# Add this near the top of your file, perhaps after the import statements
+BLOCK = "██"
+COLOR_BLOCKS = [
+    f"{bcolors.RED}{BLOCK}{bcolors.ENDC}",  # Red
+    f"{bcolors.OKGREEN}{BLOCK}{bcolors.ENDC}",  # Green
+    f"{bcolors.YELLOW}{BLOCK}{bcolors.ENDC}",  # Yellow
+    f"{bcolors.OKBLUE}{BLOCK}{bcolors.ENDC}",  # Blue
+    f"{bcolors.MAGENTA}{BLOCK}{bcolors.ENDC}",  # Magenta
+    f"{bcolors.OKCYAN}{BLOCK}{bcolors.ENDC}",  # Cyan
+    f"{bcolors.WHITE}{BLOCK}{bcolors.ENDC}",  # White
+]
+
 def run_command(command):
     process = Popen(command, stdout=PIPE, universal_newlines=True, shell=True,stderr=DEVNULL)
     stdout, stderr = process.communicate()
     del stderr
     return stdout
+
+def generate_color_blocks(num_blocks=8):
+    return " ".join(COLOR_BLOCKS[:num_blocks])
 
 def battery_info():
     if sys.platform == 'darwin':  # Check for macOS
@@ -352,6 +367,10 @@ def logo_test():
             print(sel_logo[i])
         elif i < len(sys_info):
             print(f"{' ' * max_logo_len}   {sys_info[i]}")
+
+    color_blocks = generate_color_blocks()
+    sys_info.append("")  # Add an empty line
+    sys_info.append(color_blocks)  # Add the color blocks
 
 
 logo_test()
