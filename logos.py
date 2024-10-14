@@ -9,6 +9,7 @@ class bcolors:
     ENDC = '\033[0m'
     BOLD = '\033[1m'
     MAGENTA = '\033[0;35m'
+    WHITE = '\033[0;37m'
     UNDERLINE = '\033[4m'
 
 logo_array = [[bcolors.OKBLUE +'--------------------------------------',
