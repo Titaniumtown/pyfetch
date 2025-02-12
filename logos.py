@@ -6,6 +6,8 @@ class bcolors:
     YELLOW = '\033[93m'
     PINK = '\033[95m'
     RED = '\033[91m'
+    BLACK = '\033[30m'
+    GREY = '\033[37m'
     ENDC = '\033[0m'
     BOLD = '\033[1m'
     UNDERLINE = '\033[4m'
@@ -43,4 +45,30 @@ bcolors.OKBLUE +'--------------------------------------'],
         bcolors.PINK +"   .XMMMMMMMMMMMMMMMMMMMMMMMMK.        ",
         bcolors.OKBLUE +"    kMMMMMMMMMMMMMMMMMMMMMMd           ",
         bcolors.OKBLUE +"      KMMMMMMMWXXWMMMMMMMk.            ",
-        bcolors.OKBLUE +"         .cooc,. .,coo:.               "]]
+        bcolors.OKBLUE +"         .cooc,. .,coo:.               "],
+[       bcolors.RED + "                =**-.= ..               ",
+        bcolors.RED +"            +###############++=         ",
+        bcolors.RED +"         *###########**##########+      ",
+        bcolors.RED +"       ########-            =######*    ",
+        bcolors.RED +"     =#####*                  .######.  ",
+        bcolors.RED +"    *####.                      =#####: ",
+        bcolors.RED +"   *###.                         :###:* ",
+        bcolors.RED +"  ###-             .+####=        +###  ",
+        bcolors.RED +" +###            .#-        .     .##* :",
+        bcolors.RED +".###            +*                 ###  ",
+        bcolors.RED +" ##+           -#            -     ###: ",
+        bcolors.RED +".##:           **                 .##=  ",
+        bcolors.RED +".##            +#           -     -##.. ",
+        bcolors.RED +".##             #+               +## .  ",
+        bcolors.RED +" ##+           .:##             ##*     ",
+        bcolors.RED +" ##*            :=:##:      .###-       ",
+        bcolors.RED +" :##:              +*+*#####*.          ",
+        bcolors.RED +"  ####-                 ..              ",
+        bcolors.RED +"   ###*                                 ",
+        bcolors.RED +"   .###-                                ",
+        bcolors.RED +"     ###:                               ",
+        bcolors.RED +"      +##*                              ",
+        bcolors.RED +"        *##.                            ",
+        bcolors.RED +"          *##+                          ",
+        bcolors.RED +"            :##*+                       ",
+        bcolors.RED +"                :*#-                    ",]]

@@ -195,7 +195,7 @@ def memory_info():
         with open("/proc/meminfo", "r") as f:
             lines = f.readlines()
             total_memory = int(lines[0].split()[1]) // 1024
-            free_memory = int(lines[1].split()[1]) // 1024
+            free_memory = int(lines[2].split()[1]) // 1024
             used_memory = total_memory - free_memory
 
         return f"{used_memory} MB / {total_memory} MB"
@@ -331,6 +331,9 @@ def display_array():
 
     if memory != "":
         data.append(f'{bcolors.YELLOW}Memory{bcolors.ENDC}: {memory}')
+
+    #Print terminal color blocks:
+    data.append(bcolors.BLACK + "███" + bcolors.RED + "███" + bcolors.OKGREEN + "███" + bcolors.YELLOW + "███" + bcolors.OKBLUE + "███" + bcolors.PINK + "███" + bcolors.OKCYAN + "███" + bcolors.GREY + "███")
     return data
 
 
